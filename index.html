@@ -33,7 +33,7 @@ padding:0 18px;
 .logo-top{
 display:flex;
 justify-content:center;
-margin-top:18px;   /* espaço acima da logo */
+margin-top:18px;
 margin-bottom:12px;
 }
 
@@ -44,7 +44,7 @@ width:180px;
 /* CARTÃO */
 .card{
 width:100%;
-max-width:300px;   /* cartão mais estreito */
+max-width:300px;
 margin-top:25px;
 background:var(--card);
 border-radius:30px;
@@ -81,11 +81,30 @@ color:var(--text);
 font-weight:600;
 font-size:16px;
 transition:all .15s ease;
+cursor:pointer;
 }
 
 .btn:hover{
 background:#f3f3f3;
 transform:translateY(-2px);
+}
+
+/* PIX BOX */
+
+.pix-box{
+display:none;
+margin-top:20px;
+padding:16px;
+background:#f8f8f8;
+border-radius:16px;
+font-size:14px;
+line-height:1.6;
+}
+
+.pix-box img{
+width:180px;
+margin-top:10px;
+border-radius:10px;
 }
 
 /* ENDEREÇO */
@@ -133,6 +152,34 @@ Informações e Contatos
 <span>📍</span>
 </a>
 
+<div class="btn" onclick="togglePix()">
+<span>Pagamento PIX</span>
+<span>💳</span>
+</div>
+
+</div>
+
+<div id="pixBox" class="pix-box">
+
+<strong>Pagamento PIX</strong><br><br>
+
+<strong>Nome:</strong><br>
+Edvanne O de Lemos Cassiano<br><br>
+
+<strong>Banco:</strong> Banco Inter<br>
+<strong>Agência:</strong> 0001<br>
+<strong>Conta:</strong> 229793614<br><br>
+
+<strong>PIX (CNPJ)</strong><br>
+09.600.067/0001-31<br><br>
+
+<strong>PIX (Celular)</strong><br>
++55 81 99955-0846<br><br>
+
+<strong>Escaneie o QR Code:</strong><br>
+
+<img src="./qrcode_pix.png" alt="QR Code PIX">
+
 </div>
 
 <div class="info">
@@ -141,6 +188,21 @@ Setor 2 • Fila C • Box 86 e 87
 </div>
 
 </div>
+
+<script>
+
+function togglePix(){
+let pix = document.getElementById("pixBox");
+
+if(pix.style.display === "none" || pix.style.display === ""){
+pix.style.display = "block";
+}else{
+pix.style.display = "none";
+}
+
+}
+
+</script>
 
 </body>
 </html>
