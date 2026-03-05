@@ -14,6 +14,8 @@
   --text:#1f2937;
   --muted:#5b6472;
   --shadow:0 18px 40px rgba(0,0,0,.15);
+  --panel:#f6f7f8;
+  --stroke:#e8eaee;
 }
 
 body{
@@ -85,20 +87,40 @@ body{
   transform:translateY(-2px);
 }
 
-/* BOXES EXPANSÍVEIS (PIX / LOCAL) */
-.expand-box{
+/* SUB-CARD (área conectada ao botão) */
+.subcard{
   display:none;
-  margin-top:12px;
-  padding:16px;
-  background:#f8f8f8;
+  margin-top:-6px;            /* reduz o espaço até o botão */
+  padding:10px;               /* compacto */
+  background:var(--panel);
+  border:1px solid var(--stroke);
   border-radius:16px;
-  font-size:14px;
-  line-height:1.6;
-  text-align:left;
 }
 
-.expand-box img{
-  width:180px;
+/* conteúdo interno */
+.subcard-inner{
+  background:#ffffff;
+  border:1px solid var(--stroke);
+  border-radius:14px;
+  padding:12px;
+  text-align:center;          /* texto centralizado */
+  font-size:14px;
+  line-height:1.55;
+  color:var(--text);
+}
+
+.subcard-title{
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.subcard-muted{
+  color:var(--muted);
+}
+
+.subcard img{
+  width:200px;
+  max-width:100%;
   margin-top:10px;
   border-radius:10px;
   display:block;
@@ -106,30 +128,49 @@ body{
   margin-right:auto;
 }
 
-/* Botões lado a lado */
-.two-buttons{
+/* Botões dentro do sub-card */
+.action-row{
   display:flex;
   gap:10px;
   margin-top:12px;
 }
 
-.small-btn{
-  flex:1;
+/* Entrada maior */
+.action-primary{
+  flex:2; /* maior */
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:12px;
+  padding:13px 10px;
   border-radius:14px;
   background:white;
-  border:1px solid #eaeaea;
+  border:1px solid var(--stroke);
   text-decoration:none;
   color:var(--text);
-  font-weight:700;
+  font-weight:800;
   font-size:14px;
   transition:all .15s ease;
 }
 
-.small-btn:hover{
+/* Rota menor */
+.action-secondary{
+  flex:1; /* menor */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 10px;
+  border-radius:14px;
+  background:white;
+  border:1px solid var(--stroke);
+  text-decoration:none;
+  color:var(--text);
+  font-weight:800;
+  font-size:14px;
+  transition:all .15s ease;
+}
+
+.action-primary:hover,
+.action-secondary:hover{
   background:#f3f3f3;
   transform:translateY(-1px);
 }
@@ -164,67 +205,65 @@ body{
     </a>
 
     <!-- LOCALIZAÇÃO (EXPANDE) -->
-    <div class="btn" onclick="toggleLocal()">
+    <div class="btn" onclick="togglePanel('localBox','pixBox')">
       <span>Localização</span>
       <span>📍</span>
     </div>
 
-    <div id="localBox" class="expand-box">
-      <strong>Endereço</strong><br>
-      Feira do Jeans – Toritama-PE<br>
-      Setor 2 • Fila C • Box 86 e 87
+    <div id="localBox" class="subcard">
+      <div class="subcard-inner">
+        <div class="subcard-title">Endereço</div>
+        <div class="subcard-muted">
+          Feira do Jeans – Toritama-PE<br>
+          Setor 2 • Fila C • Box 86 e 87
+        </div>
 
-      <div class="two-buttons">
-        <a class="small-btn" href="https://maps.google.com/?q=-8.0068716,-36.0666767" target="_blank" rel="noopener">
-          Entrada da feira
-        </a>
-
-        <a class="small-btn" href="https://www.google.com/maps/dir/?api=1&destination=-8.0068716,-36.0666767" target="_blank" rel="noopener">
-          Rota
-        </a>
+        <div class="action-row">
+          <a class="action-primary" href="https://maps.google.com/?q=-8.0068716,-36.0666767" target="_blank" rel="noopener">
+            Entrada da feira
+          </a>
+          <a class="action-secondary" href="https://www.google.com/maps/dir/?api=1&destination=-8.0068716,-36.0666767" target="_blank" rel="noopener">
+            Rota
+          </a>
+        </div>
       </div>
     </div>
 
     <!-- PAGAMENTOS (EXPANDE) -->
-    <div class="btn" onclick="togglePix()">
+    <div class="btn" onclick="togglePanel('pixBox','localBox')">
       <span>Pagamentos</span>
       <span>💳</span>
     </div>
 
-    <div id="pixBox" class="expand-box">
-      <strong>Nome:</strong><br>
-      Edvanne O de Lemos Cassiano<br><br>
+    <div id="pixBox" class="subcard">
+      <div class="subcard-inner">
+        <div class="subcard-title">Pagamento PIX</div>
+        <div class="subcard-muted">
+          <strong>Nome:</strong> Edvanne O de Lemos Cassiano<br>
+          <strong>Banco:</strong> Banco Inter • <strong>Ag:</strong> 0001<br>
+          <strong>Conta:</strong> 229793614<br><br>
 
-      <strong>Banco:</strong> Banco Inter<br>
-      <strong>Agência:</strong> 0001<br>
-      <strong>Conta:</strong> 229793614<br><br>
+          <strong>PIX (CNPJ):</strong> 09.600.067/0001-31<br>
+          <strong>PIX (Celular):</strong> +55 81 99955-0846
+        </div>
 
-      <strong>PIX (CNPJ)</strong><br>
-      09.600.067/0001-31<br><br>
-
-      <strong>PIX (Celular)</strong><br>
-      +55 81 99955-0846<br><br>
-
-      <strong>Escaneie o QR Code:</strong><br>
-      <img src="./qrcode_pix.png?v=1" alt="QR Code PIX">
+        <img src="./qrcode_pix.png?v=1" alt="QR Code PIX">
+      </div>
     </div>
 
   </div>
 </div>
 
 <script>
-function togglePix(){
-  const pix = document.getElementById("pixBox");
-  const local = document.getElementById("localBox");
-  if(local.style.display === "block") local.style.display = "none";
-  pix.style.display = (pix.style.display === "block") ? "none" : "block";
-}
+function togglePanel(openId, closeId){
+  const openEl = document.getElementById(openId);
+  const closeEl = document.getElementById(closeId);
 
-function toggleLocal(){
-  const local = document.getElementById("localBox");
-  const pix = document.getElementById("pixBox");
-  if(pix.style.display === "block") pix.style.display = "none";
-  local.style.display = (local.style.display === "block") ? "none" : "block";
+  // fecha o outro painel se estiver aberto
+  if (closeEl && closeEl.style.display === "block") closeEl.style.display = "none";
+
+  // alterna o atual
+  openEl.style.display = (openEl.style.display === "block") ? "none" : "block";
 }
 </script>
 
