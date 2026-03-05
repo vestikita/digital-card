@@ -1,18 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Vestikita - Digital Card</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vestikita • Cartão Digital</title>
+
+<style>
+
+:root{
+--bg:#fbf6df;
+--card:rgba(255,255,255,.8);
+--text:#1f2937;
+--muted:#5b6472;
+--brand:#2B8A8A;
+--shadow:0 18px 40px rgba(0,0,0,.1);
+}
+
+body{
+margin:0;
+font-family:system-ui,Arial,sans-serif;
+background:var(--bg);
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+padding:20px;
+}
+
+.card{
+width:100%;
+max-width:500px;
+background:var(--card);
+border-radius:20px;
+box-shadow:var(--shadow);
+padding:25px;
+text-align:center;
+}
+
+.logo img{
+width:140px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:var(--muted);
+margin-bottom:20px;
+}
+
+.buttons{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-top:10px;
+}
+
+.btn{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:14px;
+border-radius:12px;
+background:white;
+border:1px solid #eee;
+text-decoration:none;
+color:var(--text);
+font-weight:600;
+transition:all .15s ease;
+}
+
+.btn:hover{
+background:#f3f3f3;
+transform:translateY(-1px);
+}
+
+.info{
+font-size:13px;
+margin-top:20px;
+color:var(--muted);
+line-height:1.4;
+}
+
+</style>
 </head>
+
 <body>
-    <div class="cartao">
-        <h1>Vestikita</h1>
-        <p>WhatsApp: (81) 99955-0846</p>
-        <p>Instagram: @vestikita</p>
-        <p>Email: vestikita.oficial@gmail.com</p>
-        <p>Location: Feira do Jeans - Toritama-PE, Setor 2, Fila C, Box 86 e 87</p>
-    </div>
+
+<div class="card">
+
+<div class="logo">
+<img src="logo.png" alt="Vestikita Logo">
+</div>
+
+<div class="subtitle">
+Moda Infantil
+</div>
+
+<div class="buttons">
+
+<a class="btn" href="https://wa.me/5581999550846" target="_blank">
+<span>WhatsApp</span>
+<span>💬</span>
+</a>
+
+<a class="btn" href="https://instagram.com/vestikita" target="_blank">
+<span>Instagram</span>
+<span>📷</span>
+</a>
+
+<a class="btn" href="mailto:vestikita.oficial@gmail.com">
+<span>Email</span>
+<span>✉️</span>
+</a>
+
+<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Feira+do+Jeans+Toritama+PE" target="_blank">
+<span>Localização</span>
+<span>📍</span>
+</a>
+
+</div>
+
+<div class="info">
+Feira do Jeans – Toritama-PE<br>
+Setor 2 • Fila C • Box 86 e 87
+</div>
+
+</div>
+
 </body>
 </html>
