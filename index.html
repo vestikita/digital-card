@@ -26,15 +26,15 @@ flex-direction:column;
 align-items:center;
 justify-content:flex-start;
 min-height:100vh;
-padding:12px 18px;
+padding:0 18px;
 }
 
 /* LOGO */
 .logo-top{
 display:flex;
 justify-content:center;
-margin-top:-10px;
-margin-bottom:10px;
+margin-top:18px;   /* espaço acima da logo */
+margin-bottom:12px;
 }
 
 .logo-top img{
@@ -44,8 +44,8 @@ width:180px;
 /* CARTÃO */
 .card{
 width:100%;
-max-width:360px; /* reduz largura para aparecer fundo verde */
-margin-top:25px; /* desce o cartão um pouco */
+max-width:320px;   /* cartão mais estreito */
+margin-top:25px;
 background:var(--card);
 border-radius:30px;
 box-shadow:var(--shadow);
@@ -102,7 +102,7 @@ line-height:1.6;
 <body>
 
 <div class="logo-top">
-<img src="./logo.png?v=6" alt="Vestikita Logo">
+<img src="./logo.png?v=7" alt="Vestikita Logo">
 </div>
 
 <div class="card">
